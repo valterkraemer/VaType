@@ -1,0 +1,348 @@
+// E.g 'grid--top' will also get 'display: flex' property
+
+[class^="grid"], [class*=" grid"] {
+  display: flex;
+}
+
+.grid--top {
+  align-items: flex-start;
+}
+.grid--bottom {
+  align-items: flex-end;
+}
+.grid--center {
+  align-items: center;
+}
+
+// All 'cell' objects will get min-width and min-height (IE 10)
+
+[class^="cell"], [class*=" cell"] {
+  min-width: 0px;
+  min-height: 0px;
+}
+
+.cell {
+  flex: 1 1 auto;
+}
+.cell-0 {
+  flex: 0 0 auto;
+}
+
+.cell--top {
+  align-self: flex-start;
+}
+.cell--center {
+  align-self: center;
+}
+.cell--bottom {
+  align-self: flex-end;
+}
+
+@font-face {
+  font-family: 'Computer Modern Serif';
+  src: url('/lib/cmunrm.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Computer Modern Serif';
+  src: url('/lib/cmunbx.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Computer Modern Serif';
+  src: url('/lib/cmunti.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Computer Modern Serif';
+  src: url('/lib/cmunbi.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+body {
+  margin: 50px 10px;
+  background: rgb(204,204,204);
+  font-family: "Computer Modern Serif", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  text-align: justify;
+}
+
+.page {
+
+  background: white;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+  margin-bottom: 30px;
+  position: relative;
+  
+  .content {
+    > *:first-child {
+      margin-top: 0;
+    }
+
+    position: relative;
+    white-space:pre-line;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .page-number {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+  }
+}
+
+body.A4 .page {
+  width: 21cm;
+  height: 29.7cm;
+  padding: 3cm;
+}
+
+body {
+  line-height: 150%;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  
+  margin: auto;
+  display: block;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 30px;
+  margin-top: 60px;
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+
+.toc-heading {
+  white-space: normal;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 10px;
+  
+  .toc-dotted {
+    margin-left: 10px;
+    overflow: hidden;
+    direction: rtl;
+    
+    &:after {
+      content:"............................................................";
+      letter-spacing: 10px;
+    }
+  }
+  
+  .toc-page-number {
+    text-align: right;
+    min-width: 50px;
+  }
+  
+  &.H1 {
+    font-weight: 600;
+    margin: 25px 0 10px 0;
+    text-transform: uppercase;
+    
+    .toc-chapter {
+      min-width: 30px;
+    }
+  }
+  
+  &.H2 {
+    padding-left: 30px;
+    
+    .toc-chapter {
+      min-width: 45px;
+    }
+  }
+  
+  &.H3 {
+    padding-left: 75px;
+    
+    .toc-chapter {
+      min-width: 60px;
+    }
+  }
+  
+  &.H4 {
+    padding-left: 135px;
+    
+    .toc-chapter {
+      min-width: 75px;
+    }
+  }
+  
+  &.H5 {
+    padding-left: 210px;
+    
+    .toc-chapter {
+      min-width: 90px;
+    }
+  }
+}
+
+.cover {
+  text-align: center;
+  
+  .info {
+    text-align: left;
+    font-size: 20px;
+  }
+  
+  .title {
+    font-size: 42px;
+    line-height: 55px;
+    margin-top: 130px;
+  }
+  
+  .subheading {
+    font-size: 28px;
+    margin-top: 130px;
+  }
+  
+  .date {
+    font-size: 28px;
+    margin-top: 130px;
+  }
+  
+  .author {
+    font-size: 32px;
+    margin-top: 150px;
+  }
+}
+
+.description {
+  .info {
+    text-align: left;
+    font-size: 20px;
+  }
+  
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    text-align: right;
+    font-size: 20px;
+  }
+  
+  table {
+    margin-top: 15px;
+    width: 100%;
+    
+    border: 1px solid black;
+    
+    td {
+      padding: 5px 10px;
+      border-bottom: 1px solid black;
+    }
+    
+    tr.no-border td {
+      border: 0;
+    }
+  }
+}
+
+.heading {
+  .chapter {
+    margin-right: 25px;
+  }
+}
+
+referable {
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+
+  label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  table {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  thead, tbody {
+    tr:last-child {
+      td, th {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+  
+  td {
+    padding: 0 10px;
+  }
+  
+  thead tr:first-child {
+    font-weight: bold;
+  }
+
+  text-align: center;
+  thead, tbody {
+    td:first-child {
+      text-align: left;
+    }
+  }
+}
+
+markdown {
+  display: block;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+@media print {
+  body {
+    margin: 0;
+    background: white;
+  }
+  
+  .page {
+    page-break-after: always;
+    margin: 0;
+    box-shadow: none;
+  }
+}
+
+h1 {
+  page-break-before: always;
+}

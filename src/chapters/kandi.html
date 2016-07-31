@@ -1,0 +1,447 @@
+<h1>INLEDNING</h1>
+
+Användarupplevelse (UX) är hur en person upplever ett system. Det är inget nytt forskningssegment inom människa-datorinteraktion (HCI), däremot har forskningen inom området ökat markant det senaste årtiondet <citep>Hassenzahl:2011ju</citep>.
+
+<h2>Skillnaden mellan UX och användbarhet</h2>
+UX och användbarhet (Usability) förknippas ofta men är inte samma sak, däremot har de mycket med varandra att göra. <cite>ISO:9241-210</cite> definierar UX enligt följande:
+
+<blockquote>
+  En persons uppfattning och reaktioner till följd av användandet och/eller förväntade användandet av en produkt, ett system eller en tjänst.
+</blockquote>
+
+<blockquote>
+  UX omfattar användarens känslor, övertygelser, preferenser, uppfattningar, fysiska och psykologiska reaktioner, beteenden och prestationer som sker före, under och efter använding.
+</blockquote>
+
+<blockquote>
+  UX är en konsekvens av varumärken, presentation, funktionalitet, prestanda, interaktivt beteende och hjälpmedelsfunktioner i det interaktiva systemet, användarens interna och fysiska tillstånd till följd av tidigare erfarenheter, attityder, färdigheter och personlighet samt användningssammanhang.
+</blockquote>
+
+<blockquote>
+  Användbarhet, när det tolkas utifrån användarnas personliga mål, kan innehålla den typ av uppfattningar och emotionella aspekter som vanligtvis förknippas med UX. Användbarhetens kriterier kan användas för att bedöma aspekter av UX. 
+</blockquote>
+
+Användbarhet defineras däremot av <cite>ISO:9241-210</cite> enligt:
+
+<blockquote>
+  I vilken utsträckning ett system, produkt eller tjänst kan användas av specifika användare för att uppnå specifika mål på ett ändamålsenligt, effektivit och tillfredsställande sätt i ett givet sammanhang.
+</blockquote>
+
+Ett exempel på skillnaden mellan UX och användbarhet är att användbarhet svarar på frågan "Kan användaren uppnå sitt mål?", medan UX svarar på frågan "Hade användaren en så trevlig upplevelse som möjligt?" <citep>website:uie</citep>. I UX är det inte definierat ifall användaren klarar av att lösa sitt problem, däremot kommer användaren knappast vara speciellt nöjd med systemet ifall hen inte klarar av det.
+
+<h2>Syfte</h2>
+
+Det här arbetets mål är att göra en överblick över resultat, dimensioner och metoder inom UX forskning för åren 2010-2012. Resultaten jämförs sedan med en liknande studie för åren 2005-2009 av <cite>BargasAvila:2011cv</cite> för att se om och i så fall även hur forskningen har förändrats.
+
+<h1>METOD</h1>
+
+Valet av publikationer skedde enligt samma metod som i <cite>BargasAvila:2011cv</cite> studie, det vill säga genom att använda sig av QUOROM:s <citep>Moher:1999vj</citep> förfarande för metaanalyser.
+
+<h3 ignore>Steg 1: Identifiera potentiellt relevanta publikationer</h3>
+
+ACM Digital Library valdes som primära källa för publikationer men även Google Scholar användes för att få publikationer från andra källor. Sökmotorerna användes genom programmet "Papers" och krävde lite olika sökkriterier för att fungera korrekt. För ACM Digital Library användes sökkriterierna <code>"title(user) AND title(experience) AND abstract(user) AND abstract(experience) AND (vol(2010) OR vol(2011) OR vol(2012))"</code>, detta resulterade i 382 träffar. För Google Scholar användes sökkriterierna <code>"title('user experience') AND abstract('user experience') AND year(2010-2012)"</code> som resulterade i 447 träffar. Dessa sökkriterier exkluderar många relevanta publikationer, men tar fram främst den typen av publikationer som är av intresse. Bargas-Avila och Hornbæk använde sig av ett liknande förfarande.
+
+<h3 ignore>Steg 2: Överblicka publikationer</h3>
+
+Dubletter togs bort med hjälp av programmet "Papers" som automatiskt sökte igenom publikationer. Därefter gicks publikationerna manuellt igenom, dubletter som programmet inte upptäckt och publikationerna som inte hörde till intervallet 2010-2012 men ändå kommit igenom sökkriterierna togs bort. Denna procedur gallrade bort 146 publikationer och därefter återstod 683 stycken.
+
+<h3 ignore>Steg 3: Kontrollera publikationernas abstrakt</h3>
+
+Publikationernas abstrakt lästes igenom och irrrelevanta publikationerna gallrades bort. Detta exkluderade 356 publikationerna och kvar blev 327.
+
+<h3 ignore>Steg 4: Hämta potentiella publikationer</h3>
+
+I steg 4 hämtades alla publikationer som Aalto-universitetet hade tillträde till och som hade PDF-filer. 94 publikationer hade inte medföljande PDF-filer och 17 hade inte universitetet tillträde till vilket ledde till att dessa utelämnades och då återstod 216 publikationer.
+
+<h3 ignore>Steg 5: Kontrollera forskningsmetoder</h3>
+
+I likhet med Bargas-Avila och Hornbæks analys krävdes det att publikationerna innehöll empirisk forskningsdata och att det framkom om forskarna hade använt sig av kvalitativa eller kvantitativa forskningsmetoder. Publikationer som endast omfattade skribentens egna reflektioner togs inte heller med. Steg 5 exkluderade 146 publikationer och 68 återstod.
+
+<h3 ignore>Steg 6: Fastställa publikationer att inkludera i analysen</h3>
+
+I steg 6 krävdes det av publikationerna att de behandlade UX som en ny rörelse, en vidareutveckling av forskningen inom människa–datorinteraktion. Det sista steget exkluderade 34 publikationer och lika många inkluderades i analysen.
+
+Stegen är visualiserade i figur <ref name="quorom_analys"></ref>.
+
+<referable type="figure" name="quorom_analys" style="width: 65%">
+  <img src="./images/QUOROM.jpg">
+  <label>QUOROM:s förfarande för metaanalyser</label>
+</referable>
+
+<h1>RESULTAT</h1>
+
+I det här kapitlet behandlas analysens resultat, därtill jämförs resultaten med Bargas-Avila och Hornbæks analys.
+
+<h2>Produkter, användningsområden och kontext inom UX forskning</h2>
+
+UX-forskning bedrivs för en bred front av produkter. Denna forskning bedrivs för både arbets- och nöjessektorn, för att visualisera detta är resultaten uppställda i tabell <ref name="produkter_tabell"></ref>.
+
+<h3>Forskningsområden</h3>
+
+Mest har det forskats inom UX för webbsidor (32 %). Detta område har även ökat mest jämfört med analysen gjord av <cite>BargasAvila:2011cv</cite>, webbsidor var då det fjärde vanligaste forskningssegmentet med 12 %. Ett exempel på forskning inom webbsidor är en publikation av <cite>Peedu:2011hb</cite> som undersöker hur myndigheterna kan använda sig av Web 2.0 för att förbättra UX för sina olika webbtjänster.
+
+Det näst största segmentet inom UX-forskning är den mobila plattformen som 29 % av publikationerna behandlade, motsvarande siffra i analysen gjord av <cite>BargasAvila:2011cv</cite> var 21 %. Ett exempel på forskning inom det mobila segmentet är en publikation av <cite>Korhonen:2010wy</cite> som behandlar hur man analyserar UX inom personliga mobila produkter genom kontextuella faktorer. Ett annat exempel är Kajiwara och Jins (2012) publikation om korrelationen mellan hur man blir fäst vid en produkt (i det här fallet mobiltelefonen) och dess UX.
+
+
+Den största skillnaden mellan den här analysens resultat och Bargas-Avila och Hornbæks (2011) är förutom webbsidesegmentets ökning, att konstsegmentet har sjunkit till 6 % från 21 %. De övriga segmenten ligger på ungefär samma nivå.
+
+<h3>Arbetsrelaterad och nöjesrelaterad forskning</h3>
+Forskning bedrivs för både arbets- och nöjessektorn, ibland är de båda kombinerade. I 34 % av fallen forskades det av nöjesrelaterade orsaker, i 29 % arbetsrelaterade och i 39 % av publikationerna en kombination av dessa. Motsvarande siffror i Bargas-Avila et al:s analys var 64 %, 18 % och 18 %. Ett exempel på en nöjesrelaterad publikation är Hayrettin Gürkök et al:s (2011) studie om UX för röst- och tankestyrda datorspel. En motsvarande studie som är arbetsrelaterad är Buchner et al:s (2012) studie om ifall UX av industriella robotarmar ändrades efter att personalen hade använt sig av dem en längre tid.
+
+<referable type="table" name="produkter_tabell" style="width: 80%">
+  <label><b>Produkter</b></label>
+  <table class="latex-table">
+    <thead>
+      <tr>
+        <td>Produkt</td>
+        <td colspan="2">Artiklar</td>
+        <td colspan="2">Nöje</td>
+        <td colspan="2">Arbete</td>
+        <td colspan="2">Blandad</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>N</td>
+        <td>%</td>
+        <td>N</td>
+        <td>%</td>
+        <td>N</td>
+        <td>%</td>
+        <td>N</td>
+        <td>%</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Konst</td>
+        <td>2</td>
+        <td>6</td>
+        <td>1</td>
+        <td>50</td>
+        <td>1</td>
+        <td>50</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Mobilt</td>
+        <td>10</td>
+        <td>29</td>
+        <td>2</td>
+        <td>20</td>
+        <td>5</td>
+        <td>50</td>
+        <td>3</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Ljud, video, TV</td>
+        <td>4</td>
+        <td>12</td>
+        <td>2</td>
+        <td>50</td>
+        <td>1</td>
+        <td>25</td>
+        <td>1</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>Webbsida</td>
+        <td>11</td>
+        <td>32</td>
+        <td>1</td>
+        <td>9</td>
+        <td>2</td>
+        <td>18</td>
+        <td>8</td>
+        <td>73</td>
+      </tr>
+      <tr>
+        <td>Interaktivt spel</td>
+        <td>1</td>
+        <td>3</td>
+        <td>1</td>
+        <td>100</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Inte specifierad</td>
+        <td>5</td>
+        <td>15</td>
+        <td>4</td>
+        <td>80</td>
+        <td>1</td>
+        <td>20</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Annan produkt</td>
+        <td>5</td>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td>3</td>
+        <td>60</td>
+        <td>2</td>
+        <td>40</td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="text-align: left">Notera att en del av publikationerna studerar flera produkter, därför överskrider totala antalet publikationer analysens publikationsantal.</div>
+</referable>
+
+<referable type="table" name="produkter_tabell1" style="width: 80%">
+  <label><b>Produkter (Markdown)</b></label>
+  <markdown>
+| Produkt           | Artiklar  |    Nöje   |  Arbete   |  Blandad  |
+| :---------------- | :-------: | :-------: | :-------: | :-------: |
+|                   |   N - %   |   N - %   |   N - %   |   N - %   |
+| Konst             |   2 - 6   |   1 - 50  |   1 - 50  |           |
+| Mobilt            |  10 - 29  |   2 - 20  |   5 - 50  |   3 - 30  |
+| Ljud, video, TV   |   4 - 12  |   2 - 50  |   1 - 25  |   1 - 25  |
+| Webbsida          |  11 - 32  |   1 - 9   |   2 - 18  |   8 - 73  |
+| Interaktivt spel  |   1 - 3   |   1 - 100 |           |           |
+| Inte specifierad  |   5 - 15  |   4 - 80  |   1 - 20  |           |
+| Annan produkt     |   5 - 15  |   3 - 60  |   2 - 40  |           |
+  </markdown>
+  <div style="text-align: left">Notera att en del av publikationerna studerar flera produkter, därför överskrider totala antalet publikationer analysens publikationsantal.</div>
+</referable>
+
+
+<h2>Uppgiftsmiljöer och omständigheter</h2>
+
+<h3>Uppgiftsmiljöer</h3>
+
+Undersökningarna skedde i olika sorters miljöer. Oftast skedde hela undersökningen i en kontrollerad miljö (62 %) det vill säga i undersökningens faciliteter. I en undersökning satt till exempel försökspersonerna var för sig i seperata rum och kommunicerade med hjälp av ett ögon-baserat videokonferenssystem <citep>VaananenVainioMattila:2011el</citep>. Trenden att hålla undersökningarna i en kontrollerad miljö har ökat kraftigt, i Bargas-Avila och Hornbæks (2011) analys låg det på 45 %. Mängden analyser som gjordes i en okontrollerad miljö var i stort sett oförändrad på 33 %, resten gjordes i en kombination av dessa eller så var den ospecifierad.
+
+<h3>Omständigheter</h3>
+
+Omständigheterna varierade mellan forskningarna. De delades in i tre olika kategorier på samma sätt som i Bargas-Avila och Hornbæks (2011) analys:
+\begin{enumerate}
+\item \textit{Kontrollerade uppgifter}, där uppgifterna är klart definierade.
+\item \textit{Öppna situationer}, där försökspersonerna fick abstrakta anvisningar om vad de skulle göra.
+\item \textit{Användarinitierad användning}, där användarna sjäva valde om, när och hur de använde sig av produkten.
+\end{enumerate}
+
+Resultaten är uppställda i Tabell ref{omstandigheter_tabell}. Skillnaderna till Bargas-Avila och Hornbæks (2011) analys är rätt stor, att använda sig av kontrollerade uppgifter har ökat medan användandet av öppna situationer har minskat.
+
+Ett exempel på användning av användarinitierad användning är Korhonen och Arrasvuoris (2010)\nocite{Korhonen:2010wy} studie där användarna beskrev hur de upplevde sina mobiltelefoner. I en användarrapport berättar en kvinna hur hon upplevde sin mobiltelefon som hon använde eftersom hon var uttråkad. Olika typer av frågeformulär hör oftast till kontrollerade uppgifter och evaluerande av till exempel ett spel hör till öppna situationer.
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Omständigheter}}
+\begin{tabular}{lccl}
+
+\label{omstandigheter_tabell}
+\textbf{Situation }       & \textbf{N}    & \textbf{\%}   & \textbf{Bargas-Avila et al. \%}   \\ \hline
+Kontrollerade uppgifter       & 16      & 74      & 33                \\
+Öppna situationer             & 14      & 41      & 61                \\
+Användarinitierad användning  & 6       & 18      & 20                \\ \hline
+\multicolumn{4}{l}{\footnotesize Notera att en del av publikationerna berörde flera omständigheter,} \\
+\multicolumn{4}{l}{\footnotesize därför överskrider totala antalet publikationer analysens publikationsantal.} \\
+\end{tabular}
+\end{table}
+
+
+
+<h2>Undersökningarnas dimensioner</h2>
+
+Det forskas inom många olika dimensioner av UX, en översikt kan ses ur Tabell ref{dimensioner_tabell}. Den vanligaste dimensionen att forska i var allmän UX (44 %) vilket det också var i Bargas-Avila och Hornbæks (2011) analys (21 %). I övrigt har det inte skett några stora förändringar jämfört med deras analys, förutom att antalet publikationer som behandlar hedonisk kvalité har ökat från 14 % till 24 %. 
+
+Ett exempel på forskning inom allmän UX är en studie där <cite>Kajiwara:2012cy</cite> undersöker hur de olika dimensionerna påverkar hur bunden försökspersonerna blir till ett användargränssnitt.
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Dimensioner}}
+\begin{tabular}{lccl}
+
+\label{dimensioner_tabell}
+\textbf{UX dimension} & \textbf{N} & \textbf{\%}  & \textbf{Bargas-Avila et al. \%} \\ \hline
+Allmän UX             & 15         & 44           & 41                \\
+Känslor               & 4          & 12           & 24                \\
+Njutning, nöje        & 3          & 9            & 17                \\
+Estetik               & 3          & 9            & 15                \\
+Hedonisk kvalité      & 8          & 24           & 14                \\
+Förbindelse, flöde    & 2          & 6            & 12                \\
+Motivation            & 2          & 6            & 8                 \\
+Charm                 & 1          & 3            & 6                 \\
+Frustation            & 1          & 3            & 5                 \\
+Andra                 & 6          & 18           & 23                \\ \hline
+\multicolumn{4}{l}{\footnotesize Notera att en del av publikationerna behandlade flera dimensioner, därför} \\
+\multicolumn{4}{l}{\footnotesize överskrider totala antalet publikationer analysens publikationsantal.} \\
+\end{tabular}
+\end{table}
+
+
+<h2>Datainsamling</h2>
+
+<h3>Kvalitativa och kvantitativa forskningsmetoder</h3>
+<h4>ADFS</h4>
+<h5>ASDF</h5>
+
+Proportionerna mellan kvalitativa, kvantitativa och en blandning av dessa överrensstämmer väl med Bargas-Avila och Hornbæks (2011) analys. Bargas-Avila och Hornbæk noterar en uppgång av publikationer som använder sig av kvalitativ forskning, denna utveckling stämmer fortfarande då den kvalitativa forkningens andel har ökat från 50 % till 59 %. <cite>Suhonen:2012ez</cite> använder sig av både kvalitativa och kvantitativa forskningsmetoder i deras studie om kommunikation genom berörning. De använde sig av kvantitativa metoder då de analyserade loggad sensordata och resultaten från ett AttrakDiff frågeformulär (mäter användbarhet och design  <citep>website:attrakdiff</citep>). Kvalitativa metoder användes då de analyserade både resultaten från kvalitativa frågeformulär och bandade intervjuer.
+
+<h3>Forskningsmetoder</h3>
+
+Den vanligaste typen av datainsamling var frågeformulär (79 %). I ungefär hälften av fallen användes frågeformulär tillsammans med en eller flera andra forskningmetoder. Den vanligaste metoden att använda tillsammans med frågeformulär var deltagarobservationer vilket även var den näst populäraste metoden för datainsamling. Frågeformulär var även den mest använda forskningsmetoden i Bargas-Avila och Hornbæks (2011) analys (53 %). 
+
+
+
+Mer detaljerad statistik kan ses i Tabell ref{datainsamling_tabell}.
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Datainsamling}}
+\begin{tabular}{lccl}
+
+\label{datainsamling_tabell}
+
+\textbf{Metod}                  & \textbf{N}    & \textbf{\%} & \textbf{Bargas-Avila et al. \%} \\ \hline
+Frågeformulär                   & 27      & 79      & 53                \\
+Intervjuer (semi-strukturerade) & 6       & 18      & 20                \\
+Deltagarobservationer           & 9       & 26      & 17                \\
+Videoinspelningar               & 5       & 15      & 17                \\
+Fokusgrupper                    & 1       & 3       & 15                \\
+Intervjuer (öppna)              & 2       & 6       & 12                \\
+Dagböcker                       & 2       & 6       & 11                \\
+Probe                           & 2       & 6       & 9                 \\
+Collage eller teckningar        & 3       & 9       & 8                 \\ \hline
+\multicolumn{4}{l}{\footnotesize Notera att en del av publikationerna använde sig av flera av metoder,} \\
+\multicolumn{4}{l}{\footnotesize därför överskrider totala antalet publikationer analysens publikationsantal.} \\
+\end{tabular}
+\end{table}
+
+
+<h3>Typer av frågeformulär</h3>
+
+Olika sorters frågeformulär användes vid datainsamling. Den populäraste var att använda sig av olika typer av egenutvecklade frågeformulär (58 %). Vanligast var frågeformulär som hade odefinierade frågor vilka stod för 47 % av alla självutvecklade frågeformulär. Till exempel <cite>Hrimech:2011vx</cite> använde sig av självutvecklade frågeformulär för att analysera hur olika typer av visuella metaforer för att visualisera användarens växelverkan i en 3D miljö påverkar UX. De använde sig av frågor som "\textit{Hur tillfredsställd var du med denna typ av styrningsteknik}" och "\textit{Jag tyckte om upplevelsen i den virtuella miljön}".
+
+Vissa studier använde sig av flera olika frågeformulär (27 %), Bach et al:s forskning från 2011 var en sådan, de använde sig av AttrakDiff, SUS, SAM och Geneva Appraisal för att undersöka hur bra de olika frågeformulären överrensstämmde då man forskar i användbarhet och känslor. I Bargas-Avila och Hornbæks (2011) analys användes det i genomsnitt dubbelt så många frågeformulär per publikation som i denna analys.
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Frågeformulär}}
+\begin{tabular}{lccl}
+
+\label{frageformular_tabell}
+
+\textbf{Frågeformulär}                    & \textbf{N} & \textbf{\%}& \textbf{Bargas-Avila et al. \%}   \\ \hline
+Självutvecklade (okända frågor)           & 7          & 21     & 51                \\
+Självutvecklade (definierade frågor)      & 5          & 19         & 29                \\
+AttrakDiff                                & 6          & 22         & 20                \\
+Lavie \& Traktinsky                       & 1          & 4          & 20                \\
+SAM                                       & 1          & 4          & 20                \\
+Självutvecklade (dels definierade frågor) & 3          & 11         & 35                \\
+Övrigt                                    & 8          & 30         & 35                \\  \hline
+\multicolumn{4}{l}{\footnotesize Notara att en del av publikationerna använde sig av flera frågeformulär, därför} \\
+\multicolumn{4}{l}{\footnotesize överskrider totala antalet publikationer antalet publikationer i analysen med frågeformulär.} \\
+\end{tabular}
+\end{table}
+
+
+<h2>Skeden då UX undersöks och deras studiernas längd</h2>
+
+Enligt ISO-standarden <citep>ISO:9241-210</citep> sker UX före, under och efter använding av en produkt.
+
+<h3>Skeden</h3>
+
+Det har blivit vanligare att samla data om UX efter interaktionen med produkten (41 %) än det var i Bargas-Avila och Hornbæks (2011) analys (21 %). I deras analys var det vanligare att samla data både under och efter interaktionen (29 %, nu 9 %). I övrigt har det inte skett stora förändringar. Resultaten kan ses i Tabell ref{skeden_tabell}.
+
+\textit{Imaginärt skede} är då man har forskat i ett påhittat skede. Ett exempel på användandet av ett imaginärt forskningsskede är en publikation av <cite>Olsson:2012je</cite>. I publikationen använder man sig av påhittade scenarion inom \textit{förstärkt verklighet} (Augmented reality) och låter sedan försökspersonerna bedömma hur mycket nytta de skulle ha av förstärkt verklighet i respektive scenario.
+
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Skeden då UX undersöks}}
+\begin{tabular}{lcccc|cc}
+
+\label{skeden_tabell}
+& \textbf{Före} & \textbf{Under}  & \textbf{Efter}  & \textbf{Imaginär} & \textbf{N}  & \textbf{\%}   \\ \hline
+&           & x           &             &             & 2       & 6       \\
+&           &             & x           &             & 14      & 41      \\
+& x         &             & x           &             & 2       & 6       \\
+&           & x           & x           &             & 3       & 9       \\        
+& x         & x           & x           &             & 6       & 18        \\
+&           &             &             & x           & 7       & 21      \\ \hline
+\textbf{N}  & 8         & 11          & 25          & 7           &         &         \\
+\textbf{\%} & 24        & 32          & 74          & 21          &         &         \\ \hline
+\multicolumn{7}{l}{\footnotesize Notara att en del av publikationerna undesökte under flera} \\
+\multicolumn{7}{l}{\footnotesize skeden, därför överskrider totala antalet publikationer} \\
+\multicolumn{7}{l}{\footnotesize antalet publikationer i analysen med frågeformulär.} \\
+\end{tabular}
+\end{table}
+
+<h3>Undersökningarnas längd</h3>
+
+I 10 av 34 studier pågick den empiriska forskningen under ett tidsintervall som var längre än en dag. Tidsintervallen varierade kraftigt, den kortaste varade 2 dagar och den längsta i 1 år. I fem av studierna pågick forskningen i 2-10 dagar, i två 2 månader och i tre stycken 6-12 månader.
+
+Den längsta studien pågick i ett år. Studien behandlade UX inom delandet av foton i molnet och samlade ihop data om hur mycket användarna hade använt sig av tjänsten, hur de hade upplevt den och önskemål kring tjänsten.
+
+<h2>Undersökningarnas mål</h2>
+
+De olika undersökningarna kan ha ett eller flera mål. De grupperades in i tre kategorier (se tabell ref{mal_tabell}).
+
+\begin{enumerate}
+\item \textit{Grundläggande forskning}, då studien behandlade UX allmänt.
+\item \textit{Utvärdering}, då studien utvärderade en produkts UX.
+\item \textit{Metoder}, bedömer eller jämför olika metoder för att utvärdera eller förbättra en produkt.
+\end{enumerate}
+
+Att utvärdera produkter har vuxit som forskningssegment, i Bargas-Avila och Hornbæks analys låg siffran på 31 % medan den nu hade stigit till 59 %. Bergas et al. använde sig även av kategorin "Krav", men publikationer som behandlade det ämnet fanns inte i den här analysens sampel.
+
+\begin{table}[h]
+\centering
+\caption {\textbf{Undersökningarnas mål}}
+\begin{tabular}{lccl}
+
+\label{mal_tabell}
+\textbf{Mål}            & \textbf{N} & \textbf{\%} & \textbf{Bargas-Avila et al. \%}\\ \hline
+Grundläggande forskning & 8          & 24          & 29               \\
+Utvärdering             & 20         & 59          & 31               \\
+Metoder                 & 6          & 18          & 29               \\ \hline
+\end{tabular}
+\end{table}
+
+
+<h1>Diskussion</h1>
+
+Något som fascinerade Bergas-Avila et al. var att det var väldigt vanligt att studera konst inom UX fastän flera framstående forskare inom UX anser att konst inte hör till UX dimensioner <citep>BargasAvila:2011cv</citep>. Forskningen inom konst har dock avtagit kraftigt (kan ses ur tabell ref{produkter_tabell}). I de publikationer som behandlade konst så spelade konsten dessutom inte en central roll.
+
+En möjlig förklarning till varför forskningen av webbsidor har ökat kraftigt är utvecklingen och implementeringen av HTML5. HTML5 möjliggör många nya typer av tillämpningar för webbsidor, därför är det viktigt att forskningen hänger med.
+
+Av de resultat som har ändrats mest jämfört med Bargas-Avila och Hornbæks analys kan dras några paraleller. Vissa resultat kan ha bidragit till att andra resultat påverkats. När det forskades inom webbsidor så användes frågeformulär i 91 % av fallen, varav genomsnittet ligger på 79 % (Tabell ref{datainsamling_tabell}). Då det forskades inom den mobila platformen så var den i 50 % av fallen jobbrelaterad (genomsnitt 29 %) och utvärdering var målet med forskningen i 70 % av fallen (genomsnitt 59 %).
+
+
+<h2>Giltighet</h2>
+
+Den här analysen har ett mindre sampel (34 publikationer) än <cite>BargasAvila:2011cv</cite> analys (51 publikationer). Däremot sträcker sig deras analys över fem år medan denna analys över tre år.
+
+<h3>Sökkriterier</h3>
+
+Det användes andra sökkriterier i denna analys än vad <cite>BargasAvila:2011cv</cite> använde. Den här analysen använde sig av mindre exakta sökkriterier, vilket ledde till att en större mängd orelevanta publikationer kom igenom kriterierna. I denna analys användes 4,1  % av alla publikationer som inkluderades i första steget av QUOROM:s <citep>Moher:1999vj</citep> förfarande för metaanalyser (figur ref{quorom_analys}), i Bargas-Avila och Hornbæks analys användes 5,3 % av alla publikationer.
+
+<h3>Källornas korrelation</h3>
+
+Det här arbetets mål var att analysera hur man bedrivit empirisk forskning under åren 2010-2012. Ett annat mål var att sedan jämföra analysens resultat med resultaten från en liknande studie gjord för åren 2005-2009 <citep>BargasAvila:2011cv</citep>. Analyserna har använt sig av lite olika källor och sökkriterier. Även om en ansenlig mängd artiklar från Google Scholar gicks igenom (447~st) så användes endast 3 av 34 därifrån, resten togs från ACM Digital Library. Eftersom de flesta av källorna kommer från ACM Digital Library så har inte den här analysen ett lika brett omfång av publikationer som Bargas-Avila och Hornbæks analys som även använde sig av ISI Web of Knowledge och ScienceDirect. ACM Digital Library är dock världens mest omfattande samling av dator och informationstekniska artiklar <citep>website:acm</citep> så den kan anses vara den viktigaste.
+
+<cite>BargasAvila:2011cv</cite> använde sig i sin analys av mera artiklar från tidsskrifter (35 %) än denna analys (13 %), endast tidsskriften \textit{Advances in Human-Computer Interaction} var gemensam för analyserna.
+
+Av publikationerna som kom från en konferens, hade över hälften (59 %) en gemensam konferens med en publikation från i Bargas-Avila och Hornbæks analys. Ur denna data kan vi se att publikationerna kommer i rätt stor utsträckning från samma kretsar, detta är en positiv sak då det betyder att publikationsurvalen är jämförbara.
+
+Av alla studerade produkter, var den mobila platformen den enda produkt som hade flera än en publikationer som publicerats vid en konferens specifikt dedikerad för den produkten. Av publikationerna som behandlade mobila platformen var fyra stycken publicerade vid konferenserna MUM `10 eller MUM `11 (International Conference on Mobile and Ubiquitous Multimedia).
+
+
+<h1>Slutsats</h1>
+
+I denna analys har det redogjorts för hur empirisk forskning har bedrivits under tidsperioden 2010-2012 och jämfört den med tidigare forskning av <cite>BargasAvila:2011cv</cite> för åren 2005-2009 för att se hur empirisk forkning inom UX har utvecklats. I denna analys användes samma tillvägagångssätt som i Bargas-Avila och Hornbæks analys för att få jämförbara resultat. Även analysernas källor överrensstämmer i stor grad. Forskningsresultaten liknar i de flesta områden
+Bargas-Avila och Hornbæks reslultat. Inom vissa områden har det däremot skett stora förändringar.
+
+
+
+
+
+

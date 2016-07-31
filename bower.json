@@ -1,0 +1,12 @@
+{
+  "name": "Angular Typer",
+  "version": "0.0.0",
+  "authors": [
+    "Valter Kraemer <valter.kraemer@aalto.fi>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.5.5",
+    "showdown": "^1.4.1"
+  }
+}

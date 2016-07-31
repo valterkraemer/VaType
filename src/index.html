@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <!-- bower:css -->
+  <!-- endinject -->
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href=".tmp/app.css">
+  <link rel="import" href="bibliography.bib">
+  <link rel="import" href="bibliography2.bib">
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/showdown/dist/showdown.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="app.js"></script>
+  <script src="bibtexParse.js"></script>
+  <script src="table-of-contents.js"></script>
+  <!-- endinject -->
+</head>
+
+<body class="A4">
+  <link rel="import" href="chapters/cover.html">
+  <link rel="import" href="chapters/description.html">
+  <h2 ignore>Innehåll</h2>
+  <table-of-contents></table-of-contents>
+  <link rel="import" href="chapters/kandi.html">
+</body>
+
+</html>
