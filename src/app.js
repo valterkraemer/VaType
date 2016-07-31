@@ -1,122 +1,54 @@
-(function() {
+// CORE
 
-  var items = {};
+function vaType() {
+  this.tasks = {};
+  this.data = {};
+}
 
-  window.Tasks = {
-    set: set,
-    remove: remove,
-    setPriority: setPriority,
-    getTasks: getTasks,
-    data: {}
-  };
+function Task() {
+  this.priority = undefined;
+  this.func = undefined;
+}
 
-  window.onload = onload;
+vaType.prototype.task = function(name, priority, func) {
+  var task = new Task();
+  task.priority = priority;
+  task.func = func;
 
-  // FUNCTIONS
+  this.tasks[name] = task;
+};
 
-  function set(name, priority, func) {
-    if (!validName(name) ||  !validPriority(priority) || !validFunction(func)) {
-      return;
-    }
-    items[name] = {
-      priority: priority,
-      func: func
-    };
-  }
+window.vaType = new vaType();
+window.addEventListener('load', onload, false);
 
-  function remove(name) {
-    if (!validName(name) ||  !hasName(name)) {
-      return;
-    }
-    delete items[name];
-  }
+function onload() {
+  var tasks = Object.keys(vaType.tasks).map(function(key) {
+    return vaType.tasks[key];
+  })
+  .sort(function(a, b) {
+    return a.priority - b.priority;
+  })
+  .map(function(task) {
+    return task.func;
+  })
+  .reduce(function(a, b) {
+    return a.then(b);
+  }, Promise.resolve())
+  .then(function() {
+    console.log('Ready');
+  })
+  .catch(function(err) {
+    console.error(err);
+  });
+}
 
-  function setPriority(name, priority) {
-    if (!items[name] || !validPriority(priority)) {
-      return;
-    }
-    items[name].priority = priority;
-  }
+// TASKS
 
-  function getTasks() {
-    return Object.keys(items).map(function(key) {
-      return {
-        priority: items[key].priority,
-        name: key,
-        data: items[key].data
-      };
-    }).sort(function(a, b) {
-      return a.priority - b.priority;
-    });
-  }
-
-  function onload() {
-
-    var tasks = [];
-
-    Object.keys(items).map(function(key) {
-      return items[key];
-    })
-      // Order tasks into priority order
-      .sort(function(a, b) {
-        return a.priority - b.priority;
-      })
-      // Run tasks synchronous
-      .reduce(function(p, f) {
-        return p.then(function(data) {
-          f.data = data;
-          return f.func();
-        });
-      }, Promise.resolve())
-      .then(function() {
-        console.log('Ready');
-      })
-      .catch(function(err) {
-        console.error(err);
-      });
-    }
-
-  // HELPER
-
-  function validName(name) {
-    if (!name) {
-      console.warning('No task name specified');
-    }
-    return !!name;
-  }
-
-  function hasName(name) {
-    if (!items[name]) {
-      console.warning('No task with name: "' + name + '"');
-    }
-    return !!items[name];
-  }
-
-  function validPriority(priority) {
-    if (!Number.isInteger(priority)) {
-      console.warning('Priority: "' + priority + '" is not an integer');
-    }
-    return Number.isInteger(priority);
-  }
-
-  function validFunction(func) {
-    if (typeof func !== 'function') {
-      console.warning('Not an function: ' + func);
-    }
-    return typeof func === 'function';
-  }
-
-})();
-
-Tasks.set('hideBody', 1, function hideBody() {
+vaType.task('hideBody', 100, function hideBody() {
   document.body.style.opacity = '0';
 });
 
-Tasks.set('showBody', 10000, function hideBody() {
-  document.body.style.opacity = '1';
-});
-
-Tasks.set('importHTML', 1000, function importHTML() {
+vaType.task('importHTML', 200, function importHTML() {
 
   var elements = document.body.querySelectorAll('link[rel=import]');
 
@@ -129,23 +61,35 @@ Tasks.set('importHTML', 1000, function importHTML() {
   }
 });
 
-Tasks.set('importBib', 1001, function importBib() {
+vaType.task('importBib', 300, function importBib() {
 
   var elements = document.head.querySelectorAll('link[rel=import]');
   for (var i = 0; i < elements.length; i++) {
     if (elements[i].href.endsWith('.bib')) {
       var content = elements[i].import.querySelector('body').innerHTML;
-      Tasks.data.bib = Tasks.data.bib || [];
-      Tasks.data.bib = Tasks.data.bib.concat(bibtexParse.toJSON(content));
+      vaType.data.bib = vaType.data.bib || [];
+      vaType.data.bib = vaType.data.bib.concat(bibtexParse.toJSON(content));
     }
   }
 });
 
-Tasks.set('citations', 1003, function citations() {
+vaType.task('waitForImages', 400, function waitForImages() {
+  var images = [].slice.call(document.querySelectorAll('img'));
+
+  return Promise.all(images.map(function(image) {
+    return new Promise(function(resolve, reject) {
+      image.onload = resolve;
+      image.onerror = reject;
+    });
+  }));
+
+});
+
+vaType.task('citations', 500, function citations() {
 
   var cites = document.body.querySelectorAll('cite, citep');
 
-  var bib = Tasks.data.bib;
+  var bib = vaType.data.bib;
 
   for (var i = 0; i < cites.length; i++) {
     /*jshint loopfunc: true */
@@ -194,19 +138,79 @@ Tasks.set('citations', 1003, function citations() {
 
 });
 
-Tasks.set('waitForImages', 1002, function waitForImages() {
-  var images = [].slice.call(document.querySelectorAll('img'));
+vaType.task('cssPageBreakToJsSplit', 600, function cssPageBreakToJsSplit() {
 
-  return Promise.all(images.map(function(image) {
-    return new Promise(function(resolve, reject) {
-      image.onload = resolve;
-      image.onerror = reject;
-    });
-  }));
+  var elements = document.body.children;
+
+  for (var i = 0; i < elements.length; i++) {
+    if (window.getComputedStyle(elements[i]).pageBreakBefore === 'always') {
+      elements[i].setAttribute('clearpage', '');
+      elements[i].style.pageBreakBefore = 'auto';
+    }
+  }
+});
+
+vaType.task('markdown', 700, function markdown() {
+
+  var converter = new showdown.Converter({tables: true});
+
+  var elements = document.querySelectorAll('markdown');
+
+  for (var i = 0; i < elements.length; i++) {
+    elements[i].innerHTML = converter.makeHtml(elements[i].innerHTML);
+  }
+});
+
+vaType.task('referables', 800, function referable() {
+  var referables = document.querySelectorAll('referable');
+
+  var numbers = {};
+
+  for (var i = 0; i < referables.length; i++) {
+    var name = referables[i].getAttribute('name');
+    var type = referables[i].getAttribute('type');
+
+    switch (type) {
+      case 'table':
+      type = 'tabell';
+      break;
+      case 'figure':
+      type = 'figur';
+      break;
+    }
+
+    numbers[type] = numbers[type] || 0;
+    numbers[type]++;
+
+    var label = referables[i].querySelector('label');
+    label.innerHTML = `${firstLetterInCaps(type)} ${numbers[type]}: ${label.innerHTML}`;
+
+    var refs = document.querySelectorAll('ref[name="' + name + '"]');
+
+    for (var j = 0; j < refs.length; j++) {
+      refs[j].innerHTML = numbers[type];
+    }
+  }
+
+  function firstLetterInCaps(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 
 });
 
-Tasks.set('splitPages', 3000, function splitPages() {
+// Remove starting and trailing newline from Body if exists
+vaType.task('trimBodyNewline', 900, function trimBodyNewline() {
+  document.body.innerHTML = document.body.innerHTML
+  .replace(/\n{2,}/g, '')
+  .replace(/>\n/g, '>');
+});
+
+// Remove starting and trailing newline from Body if exists
+vaType.task('waitForFontsLoad', 1000, function waitForFontLoad() {
+  return document.fonts.ready;
+});
+
+vaType.task('splitPages', 1100, function splitPages() {
 
   var nodes = [];
 
@@ -317,7 +321,7 @@ Tasks.set('splitPages', 3000, function splitPages() {
   }
 });
 
-Tasks.set('insertPageNumbers', 4000, function insertPageNumbers() {
+vaType.task('insertPageNumbers', 1200, function insertPageNumbers() {
 
   var elements = document.querySelectorAll('body > .page');
 
@@ -335,82 +339,13 @@ Tasks.set('insertPageNumbers', 4000, function insertPageNumbers() {
   }
 });
 
-// Remove starting and trailing newline from Body if exists
-Tasks.set('trimBodyNewline', 2998, function trimBodyNewline() {
-  document.body.innerHTML = document.body.innerHTML
-  .replace(/\n{2,}/g, '')
-  .replace(/>\n/g, '>');
-});
-
-// Remove starting and trailing newline from Body if exists
-Tasks.set('waitForFontsLoad', 2999, function waitForFontLoad() {
-  return document.fonts.ready;
-});
-
-Tasks.set('keepPositionOnRefresh', 9000, function keepPositionOnRefresh() {
+vaType.task('keepPositionOnRefresh', 1300, function keepPositionOnRefresh() {
   document.body.scrollTop = sessionStorage.getItem('scrollTop');
   window.onscroll = function() {
     sessionStorage.setItem('scrollTop', document.body.scrollTop);
   };
 });
 
-Tasks.set('referables', 1500, function referable() {
-  var referables = document.querySelectorAll('referable');
-
-  var numbers = {};
-
-  for (var i = 0; i < referables.length; i++) {
-    var name = referables[i].getAttribute('name');
-    var type = referables[i].getAttribute('type');
-
-    switch (type) {
-      case 'table':
-      type = 'tabell';
-      break;
-      case 'figure':
-      type = 'figur';
-      break;
-    }
-
-    numbers[type] = numbers[type] || 0;
-    numbers[type]++;
-
-    var label = referables[i].querySelector('label');
-    label.innerHTML = `${firstLetterInCaps(type)} ${numbers[type]}: ${label.innerHTML}`;
-
-    var refs = document.querySelectorAll('ref[name="' + name + '"]');
-
-    for (var j = 0; j < refs.length; j++) {
-      refs[j].innerHTML = numbers[type];
-    }
-  }
-
-  function firstLetterInCaps(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
+vaType.task('showBody', 1400, function hideBody() {
+  document.body.style.opacity = '1';
 });
-
-Tasks.set('cssPageBreakToJsSplit', 1003, function cssPageBreakToJsSplit() {
-
-  var elements = document.body.children;
-
-  for (var i = 0; i < elements.length; i++) {
-    if (window.getComputedStyle(elements[i]).pageBreakBefore === 'always') {
-      elements[i].setAttribute('clearpage', '');
-      elements[i].style.pageBreakBefore = 'auto';
-    }
-  }
-});
-
-Tasks.set('markdown', 1004, function markdown() {
-
-  var converter = new showdown.Converter({tables: true});
-
-  var elements = document.querySelectorAll('markdown');
-
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].innerHTML = converter.makeHtml(elements[i].innerHTML);
-  }
-});
-

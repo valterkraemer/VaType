@@ -1,6 +1,6 @@
 (function() {
 
-  Tasks.set('registerHeadings', 2000, function registerHeadings() {
+  vaType.task('registerHeadings', 250, function registerHeadings() {
     return new Promise(function(resolve, reject) {
 
       var h1 = 0;
@@ -10,7 +10,7 @@
       var h5 = 0;
       var h6 = 0;
 
-      Tasks.data.headings = [];
+      vaType.data.headings = [];
 
       var query = 'h1:not([ignore]), h2:not([ignore]), h3:not([ignore]), h4:not([ignore]), h5:not([ignore])';
 
@@ -51,7 +51,7 @@
           chapter = `${h1}.${h2}.${h3}.${h4}.${++h5}`;
         }
 
-        Tasks.data.headings.push({
+        vaType.data.headings.push({
           chapter: chapter,
           text: hs[i].innerHTML,
           importance: hs[i].nodeName,
@@ -80,7 +80,7 @@
     });
   });
 
-  Tasks.set('tableOfContents', 2001, function tableOfContents() {
+  vaType.task('tableOfContents', 251, function tableOfContents() {
     return new Promise(function(resolve, reject) {
 
       var element = document.querySelector('table-of-contents');
@@ -90,7 +90,7 @@
         // Temporary container for all headings
         var toc = document.createElement('div');
 
-        Tasks.data.headings.forEach(function(item) {
+        vaType.data.headings.forEach(function(item) {
           var heading = document.createElement('a');
           heading.href = '#' + item.chapter;
           heading.className += 'toc-heading grid ' + item.importance;
@@ -123,7 +123,7 @@
     });
   });
 
-  Tasks.set('tableOfContentsPageNumbers', 5000, function tableOfContentsPageNumbers () {
+  vaType.task('tableOfContentsPageNumbers', 1201, function tableOfContentsPageNumbers () {
     return new Promise(function(resolve, reject) {
 
       var pages = document.querySelectorAll('body > .page');
